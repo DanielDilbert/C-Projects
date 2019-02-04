@@ -1,0 +1,63 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void Intro();
+void Hero();
+int Fight();
+
+int main() {
+
+	Intro();
+	Hero();
+	Fight();
+
+	return 0;
+}
+
+void Intro() {
+
+	cout << "Welcome to my adventure game!\n";
+	cout << "Here you will create your hero.\n";
+	cout << "Once you create your hero, you will fight a monster!\n";
+}
+
+void Hero() {
+
+	string HeroName;
+	int HeroHealth = 100;
+	int HeroAttack = 15;
+	int mana = 3;
+
+	cout << "Pick a name for your hero: ";
+	cin >> HeroName;
+	cout << endl;
+
+
+} // end Hero
+
+int Fight() {
+
+	string MonsterName = "Goblin";
+	int MonsterHealth = 100;
+	int MonsterAttack = 7;
+	int userinput;
+	cout << "You have encountered a " << MonsterName << "!";
+
+	cin >> userinput;
+
+	if (userinput == 1)
+	{
+		MonsterHealth = MonsterHealth - HeroAttack;
+		HeroHealth = HeroHealth - MonsterAttack;
+	}
+	else if (userinput == 2) {
+		mana = mana + 1;
+		HeroHealth = HeroHealth - MonsterAttack;
+	}
+	else {
+		return 0;
+		cout << "Wrong Button!";
+	}
+	return 0;
+} // end Fight
