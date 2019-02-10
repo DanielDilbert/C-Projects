@@ -3,61 +3,87 @@
 using namespace std;
 
 void Intro();
-void Hero();
+//void Hero();
 int Fight();
 
 int main() {
-
-	Intro();
-	Hero();
-	Fight();
-
-	return 0;
+    
+    Intro();
+    //Hero();
+    Fight();
+    
+    return 0;
 }
 
 void Intro() {
-
-	cout << "Welcome to my adventure game!\n";
-	cout << "Here you will create your hero.\n";
-	cout << "Once you create your hero, you will fight a monster!\n";
+    
+    cout << "Welcome to my adventure game!\n";
+    cout << "Here you will create your hero.\n";
+    cout << "Once you create your hero, you will fight a monster!\n";
 }
 
+/*
 void Hero() {
-
-	string HeroName;
-	int HeroHealth = 100;
-	int HeroAttack = 15;
-	int mana = 3;
-
-	cout << "Pick a name for your hero: ";
-	cin >> HeroName;
-	cout << endl;
-
-
+    
+    string HeroName;
+    int HeroHealth = 100;
+    int HeroAttack = 15;
+    int mana = 3;
+    
+    cout << "Pick a name for your hero: ";
+    cin >> HeroName;
+    cout << endl;
+    
+    
 } // end Hero
+*/
 
 int Fight() {
+    
+    string HeroName;
+    cout << "Pick a name for your hero: ";
+    cin >> HeroName;
+    cout << endl;
+    
+    string MonsterName = "Goblin";
+    int MonsterHealth = 100;
+    int MonsterAttack = 7;
+    int HeroAttack = 15;
+    int HeroHealth = 100;
+    int mana = 3;
+    int userinput;
+    cout << "You have encountered a " << MonsterName << "!" << endl << endl;
+    
+    cout << "1. Attack ";
 
-	string MonsterName = "Goblin";
-	int MonsterHealth = 100;
-	int MonsterAttack = 7;
-	int userinput;
-	cout << "You have encountered a " << MonsterName << "!";
-
-	cin >> userinput;
-
-	if (userinput == 1)
-	{
-		MonsterHealth = MonsterHealth - HeroAttack;
-		HeroHealth = HeroHealth - MonsterAttack;
-	}
-	else if (userinput == 2) {
-		mana = mana + 1;
-		HeroHealth = HeroHealth - MonsterAttack;
-	}
-	else {
-		return 0;
-		cout << "Wrong Button!";
-	}
-	return 0;
+    cin >> userinput;
+    
+    cout << endl;
+    
+    if (userinput == 1)
+    {
+        MonsterHealth = MonsterHealth - HeroAttack;
+        HeroHealth = HeroHealth - MonsterAttack;
+    }
+    else if (userinput == 2) {
+        mana = mana + 1;
+        HeroHealth = HeroHealth - MonsterAttack;
+    }
+    
+    cout << "You hit the monster!" << endl;
+    cout << "The monster also hits you back!" << endl;
+    
+    cout << "Your health is now: " << HeroHealth << endl;
+    cout << "The monster's health is now: " << MonsterHealth << endl;
+    
+    if (userinput /= 1) {
+        return 0;
+        cout << "Wrong Button!";
+    }
+    
+    if (HeroHealth < 0 ) {
+        cout  << "You've failed!";
+        return 0;
+    }
+    return 0;
 } // end Fight
